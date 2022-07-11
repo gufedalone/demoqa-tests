@@ -11,15 +11,3 @@ def browser_management():
         os.getenv('selene.hold_browser_open', 'false').lower() == 'true'
     )
     browser.config.timeout = float(os.getenv('selene.timeout', '3'))
-
-
-'''
-@pytest.fixture()
-def registration_form_data():
-	browser.element('[id=firstName]').type('Vlad').press_tab()
-	browser.element('[id=lastName]').type('Kh').press_tab()
-	browser.element('[id=userEmail]').type('qa@gu.ru').press_tab()
-	browser.element('[id=age]').type('21').press_tab()
-	browser.element('[id=salary]').type('2500').press_tab()
-	browser.element('[id=department]').type('Legal').press_enter()
-'''
