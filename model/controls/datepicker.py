@@ -1,4 +1,3 @@
-from selene import command
 from selene.core.entity import Element
 from selene.support.shared import browser
 
