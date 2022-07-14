@@ -1,18 +1,11 @@
 from selene import have, command
 from selene.support.shared import browser
-from controls.tags_input import TagsInput
-from controls.dropdown import Dropdown
+from model.controls.tags_input import TagsInput
+from model.controls.dropdown import Dropdown
 from utils.paths import resource
-from controls.datepicker import DatePicker
-from controls.table import Table
-
-
-def given_opened_registration_form():
-    browser.open('/automation-practice-form')
-
-    browser.all('[id^=google_ads][id$=container__],[id$=Advertisement]')\
-        .with_(timeout=10).should(have.size_greater_than_or_equal(3))\
-        .perform(command.js.remove)
+from model.controls.datepicker import DatePicker
+from model.controls.table import Table
+from model.preconditions import given_opened_registration_form
 
 
 def test_registration_form():
@@ -28,11 +21,11 @@ def test_registration_form():
 
     browser.element('#userNumber').type('1234567890')
 
-    date_of_birth = browser.element('#dateOfBirthInput')
-    DatePicker.select(date_of_birth, '2000', 'October', '10')
+    date_of_birth = DatePicker(browser.element('#dateOfBirthInput'))
+    date_of_birth.add('10.10.2000')
     '''
     # OR:
-    DatePicker.add(date_of_birth, '10 Oct 2000')
+    date_of_birth.select('2000', 'October', '10')
     '''
 
     subjects = TagsInput(browser.element('#subjectsInput'))
@@ -68,6 +61,5 @@ def test_registration_form():
     results.cells_of_row(7).should(have.exact_texts('Picture', 'test_image.png'))
     results.cells_of_row(8).should(have.exact_texts('Address', 'Address street'))
     results.cells_of_row(9).should(have.exact_texts('State and City', 'NCR Delhi'))
-
 
 
