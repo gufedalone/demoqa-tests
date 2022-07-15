@@ -1,11 +1,12 @@
-from selene.core.entity import Element
+from selene import have
 from selene.support.shared import browser
 
 
-class Table:
+class TableRow:
 
-    def __init__(self, element: Element = ...):
-        self.element = element if element is not ... else browser.element('.table')
+    def __init__(self, row_num):
+        self.row_num = row_num
 
-    def cells_of_row(self, index):
-        return self.element.all('tbody tr')[index].all('td')
+    def should_have(self, *results):
+        for result in results:
+            browser.all('.table-responsive tbody tr')[self.row_num].all('td')[1].should(have.exact_text(result))

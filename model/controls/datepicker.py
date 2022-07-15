@@ -15,6 +15,7 @@ month_number = {'January': '1',
                 'November': '11',
                 'December': '12'}
 
+
 class DatePicker:
 
     def __init__(self, element: Element):
@@ -42,6 +43,3 @@ class DatePicker:
             f'[value="{int(month_) - 1}"]'
         ).click()
         browser.element(f'.react-datepicker__day--0{int(day)}').click()
-
-
-
