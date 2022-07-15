@@ -2,7 +2,7 @@ from model import app
 
 
 def test_registration_form():
-    app.given_opened_registration_form()
+    app.open_form_page()
 
     # WHEN
     app.form.fill_first_name('Vlad')

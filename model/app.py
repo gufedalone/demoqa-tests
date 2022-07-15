@@ -6,7 +6,7 @@ form = StudentRegistrationForm()
 results = RegisteredUser()
 
 
-def given_opened_registration_form():
+def open_form_page():
     browser.open('/automation-practice-form')
 
     browser.all('[id^=google_ads][id$=container__],[id$=Advertisement]') \
