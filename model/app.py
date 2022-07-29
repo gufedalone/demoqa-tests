@@ -1,5 +1,5 @@
 from selene import have, command
-from selene.support.shared import browser
+from tests.conftest import browser
 from model.pages.student_registration_page import StudentRegistrationForm, RegisteredUser
 from utils import attach
 
