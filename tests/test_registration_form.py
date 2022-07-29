@@ -1,12 +1,12 @@
 from model import app
 import allure
-from allure_commons.types import Severity
 from utils import attach
 
 
 @allure.label("owner", "gufedalone")
 @allure.feature("Student registration")
 @allure.link("https://demoqa.com/automation-practice-form", name="TestingForm")
+@allure.title("Test registration form")
 def test_registration_form():
     with allure.step('Open form page'):
         app.open_form_page('https://demoqa.com/automation-practice-form')
