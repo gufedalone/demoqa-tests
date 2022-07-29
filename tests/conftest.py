@@ -1,5 +1,4 @@
 import os
-
 from selene.support.shared import browser
 import pytest
 from selenium import webdriver
@@ -14,7 +13,7 @@ def browser_management():
             "browserVersion": "100.0",
             "selenoid:options": {
                 "enableVNC": True,
-                "enableVideo": False
+                "enableVideo": True
             }
         }
     options.capabilities.update(selenoid_capabilities)

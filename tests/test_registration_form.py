@@ -1,6 +1,5 @@
 from model import app
 import allure
-from utils import attach
 
 
 @allure.label("owner", "gufedalone")
@@ -38,6 +37,4 @@ def test_registration_form():
         app.results.address.should_have('Address street')
         app.results.location.should_have('NCR Delhi')
 
-    attach.add_screenshot()
-    attach.add_logs()
-    attach.add_html()
+    app.add_attachments()
