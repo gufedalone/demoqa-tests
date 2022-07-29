@@ -15,8 +15,6 @@ def open_form_page(url):
         .perform(command.js.remove)
 
 
-def add_attachments():
     attach.add_html(browser)
     attach.add_screenshot(browser)
     attach.add_logs(browser)
-    browser.quit()

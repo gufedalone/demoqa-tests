@@ -1,3 +1,5 @@
+import os
+
 from selene.support.shared import browser
 import pytest
 from selenium import webdriver
@@ -20,6 +22,12 @@ def browser_management():
         command_executor="https://user1:1234@selenoid.autotests.cloud/wd/hub",
         options=options
     )
+
     browser.config.driver = driver
+    browser.config.browser_name = os.getenv('selene.browser_name', 'chrome')
+    browser.config.hold_browser_open = (
+            os.getenv('selene.hold_browser_open', 'false').lower() == 'true'
+    )
+    browser.config.timeout = float(os.getenv('selene.timeout', '3'))
 
     yield browser
