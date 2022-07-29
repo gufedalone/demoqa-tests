@@ -4,11 +4,8 @@ from allure_commons.types import Severity
 from utils import attach
 
 
-@allure.tag("Sign up")
-@allure.severity(Severity.CRITICAL)
 @allure.label("owner", "gufedalone")
 @allure.feature("Student registration")
-@allure.story("Check that form is filled correctly")
 @allure.link("https://demoqa.com/automation-practice-form", name="TestingForm")
 def test_registration_form():
     with allure.step('Open form page'):
@@ -25,7 +22,6 @@ def test_registration_form():
         app.form.check_hobbies('Sports')
         app.form.upload_picture('test_image.png')
         app.form.fill_current_address('Address street')
-        attach.add_screenshot()
         app.form.choose_state('NCR')
         app.form.choose_city('Delhi')
         app.form.submit()
@@ -41,3 +37,7 @@ def test_registration_form():
         app.results.picture.should_have('test_image.png')
         app.results.address.should_have('Address street')
         app.results.location.should_have('NCR Delhi')
+
+    attach.add_screenshot()
+    attach.add_logs()
+    attach.add_html()
