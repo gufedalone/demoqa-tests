@@ -12,7 +12,7 @@ def browser_management():
     browser.config.timeout = float(os.getenv('selene.timeout', '3'))
 
 
-def pytest_add_option(parser):
+def pytest_addoption(parser):
     parser.addoption(
         '--remote_driver',
         default='selenoid.autotests.cloud'
