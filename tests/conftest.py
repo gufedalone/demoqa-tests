@@ -1,4 +1,3 @@
-import allure
 from selene.support.shared import browser
 import pytest
 import os
