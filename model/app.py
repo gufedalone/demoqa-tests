@@ -7,11 +7,11 @@ form = StudentRegistrationForm()
 results = RegisteredUser()
 
 
-def open_form_page():
-    browser.open('/automation-practice-form')
+def open_form_page(url):
+    browser.open(url)
 
     browser.all('[id^=google_ads][id$=container__],[id$=Advertisement]') \
-        .with_(timeout=18).should(have.size_greater_than_or_equal(3)) \
+        .with_(timeout=20).should(have.size_greater_than_or_equal(3)) \
         .perform(command.js.remove)
 
 

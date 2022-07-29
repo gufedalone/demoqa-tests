@@ -11,7 +11,7 @@ from allure_commons.types import Severity
 @allure.link("https://demoqa.com/automation-practice-form", name="TestingForm")
 def test_registration_form():
     with allure.step('Open form page'):
-        app.open_form_page()
+        app.open_form_page('https://demoqa.com/automation-practice-form')
 
     with allure.step('Fill form'):
         app.form.fill_first_name('Vlad')

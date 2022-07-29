@@ -1,15 +1,11 @@
 from selene.support.shared import browser
 import pytest
-import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 
 @pytest.fixture(scope='function', autouse=True)
 def browser_management():
-    browser.config.base_url = os.getenv('selene.base_url', 'https://demoqa.com')
-    browser.config.browser_name = os.getenv('selene.browser_name', 'chrome')
-    browser.config.timeout = float(os.getenv('selene.timeout', '3'))
     options = Options()
     selenoid_capabilities = {
             "browserName": "chrome",
