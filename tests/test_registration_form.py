@@ -3,7 +3,7 @@ import allure
 from allure_commons.types import Severity
 
 
-@allure.tag("web")
+@allure.tag("Sign up")
 @allure.severity(Severity.CRITICAL)
 @allure.label("owner", "gufedalone")
 @allure.feature("Student registration")
