@@ -39,3 +39,5 @@ def test_registration_form():
         app.results.picture.should_have('test_image.png')
         app.results.address.should_have('Address street')
         app.results.location.should_have('NCR Delhi')
+
+    app.add_attachments()
