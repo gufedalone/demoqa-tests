@@ -37,7 +37,6 @@ with allure.step('Browser Management'):
         )
 
 
-
 def pytest_addoption(parser):
     parser.addoption(
         '--remote_driver',
